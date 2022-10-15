@@ -2,7 +2,7 @@
 
 #dirParse: Drop the program in a directory housing the folder to go over and run.
 
-#Usage: dirparse <NewFolderName>  (ex: dirParse Project1)
+#Usage: ./dirparse <NewFolderName>  (ex: dirParse Project1)
 
 #Files/Folders created include: doc, jpg, xls, csv, txt, sql, db, ppt, pdf, jpeg, png, odt
 
