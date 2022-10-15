@@ -1,0 +1,300 @@
+#!/bin/bash
+
+#dirParse: Drop the program in a directory housing the folder to go over and run.
+
+#Usage: dirparse <NewFolderName>  (ex: dirParse Project1)
+
+#Files/Folders created include: doc, jpg, xls, csv, txt, sql, db, ppt, pdf, jpeg, png, odt
+
+
+#########################
+
+#inputs                                                                                                                                                                                 
+a=$1  #folderName
+
+#variables
+pwd > pwd.txt
+pwd=$(cat pwd.txt)
+
+mkdir $1
+find . -print0 | while read -d $'\0' file; do cp -v "$file" /tmp; done
+
+cd /tmp
+
+for file in *' '*
+do
+  mv -- "$file" "${file// /_}"
+done
+
+cd $pwd
+ls -l /tmp > folder.txt
+
+cat folder.txt | rev | cut -f1 -d ":" | rev | grep "\." | sed 's/[^ ]* //' > LegitFileNames.txt
+
+rm pwd.txt folder.txt
+
+### BEGIN ORGANIZING BY FILETYPE ###
+
+#PULL DOCS
+cat LegitFileNames.txt | grep "\\.doc" > docs.txt
+
+#MAKE DIRECTORY
+mkdir $a/docs
+
+#Make doc bashfile
+touch docCP.sh
+
+File="docs.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/docs/$Line\"" >> docCP.sh
+done
+
+chmod 777 docCP.sh
+./docCP.sh
+
+###### BEGIN JPG #######
+cat LegitFileNames.txt | grep "\\.jpg" > jpg.txt
+
+#MAKE DIRECTORY
+mkdir $a/jpg
+
+#Make doc bashfile
+touch jpgCP.sh
+
+File="jpg.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/jpg/$Line\"" >> jpgCP.sh
+done
+
+chmod 777 jpgCP.sh
+./jpgCP.sh
+
+###### END JPG #############
+
+###### BEGIN xls #######
+cat LegitFileNames.txt | grep "\\.xls" > xls.txt
+
+#MAKE DIRECTORY
+mkdir $a/xls
+
+#Make doc bashfile
+echo "#!/bin/bash" >  xlsCP.sh
+
+File="xls.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/xls/$Line\"" >> xlsCP.sh
+done
+
+chmod 777 xlsCP.sh
+./xlsCP.sh
+
+###### END xls #############
+
+###### BEGIN csv #######
+cat LegitFileNames.txt | grep "\\.csv" > csv.txt
+
+#MAKE DIRECTORY
+mkdir $a/csv
+
+#Make doc bashfile
+echo "#!/bin/bash" >  csvCP.sh
+
+File="csv.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/csv/$Line\"" >> csvCP.sh
+done
+
+chmod 777 csvCP.sh
+./csvCP.sh
+
+rm csvCP.sh csv.txt
+###### END csv #############
+
+###### BEGIN txt #######
+cat LegitFileNames.txt | grep "\\.txt" > txt.txt
+
+#MAKE DIRECTORY
+mkdir $a/txt
+
+#Make doc bashfile
+echo "#!/bin/bash" >  txtCP.sh
+
+File="txt.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/txt/$Line\"" >> txtCP.sh
+done
+
+chmod 777 txtCP.sh
+./txtCP.sh
+
+rm txtCP.sh txt.txt
+###### END txt #############
+
+###### BEGIN sql #######
+cat LegitFileNames.txt | grep "\\.sql" > sql.txt
+
+#MAKE DIRECTORY
+mkdir $a/sql
+
+#Make doc bashfile
+echo "#!/bin/bash" >  sqlCP.sh
+
+File="sql.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/sql/$Line\"" >> sqlCP.sh
+done
+
+chmod 777 sqlCP.sh
+./sqlCP.sh
+
+rm sqlCP.sh sql.txt
+###### END sql #############
+
+###### BEGIN db #######
+cat LegitFileNames.txt | grep "\\.db" > db.txt
+
+#MAKE DIRECTORY
+mkdir $a/db
+
+#Make doc bashfile
+echo "#!/bin/bash" >  dbCP.sh
+
+File="db.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/db/$Line\"" >> dbCP.sh
+done
+
+chmod 777 dbCP.sh
+./dbCP.sh
+
+rm dbCP.sh db.txt
+###### END db #############
+
+
+###### BEGIN ppt #######
+cat LegitFileNames.txt | grep "\\.ppt" > ppt.txt
+
+#MAKE DIRECTORY
+mkdir $a/ppt
+
+#Make doc bashfile
+echo "#!/bin/bash" >  pptCP.sh
+
+File="ppt.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/ppt/$Line\"" >> pptCP.sh
+done
+
+chmod 777 pptCP.sh
+./pptCP.sh
+
+rm pptCP.sh ppt.txt
+###### END ppt #############
+
+###### BEGIN pdf #######
+cat LegitFileNames.txt | grep "\\.pdf" > pdf.txt
+
+#MAKE DIRECTORY
+mkdir $a/pdf
+
+#Make doc bashfile
+echo "#!/bin/bash" >  pdfCP.sh
+
+File="pdf.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/pdf/$Line\"" >> pdfCP.sh
+done
+
+chmod 777 pdfCP.sh
+./pdfCP.sh
+
+rm pdfCP.sh pdf.txt
+###### END pdf #############
+
+###### BEGIN jpeg #######
+cat LegitFileNames.txt | grep "\\.jpeg" > jpeg.txt
+
+#MAKE DIRECTORY
+mkdir $a/jpeg
+
+#Make doc bashfile
+echo "#!/bin/bash" >  jpegCP.sh
+
+File="jpeg.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/jpeg/$Line\"" >> jpegCP.sh
+done
+
+chmod 777 jpegCP.sh
+./jpegCP.sh
+
+rm jpegCP.sh jpeg.txt
+###### END jpeg #############
+
+#####BEGIN png #####
+cat LegitFileNames.txt | grep "\\.png" > png.txt
+
+#MAKE DIRECTORY
+mkdir $a/png
+
+#Make doc bashfile
+echo "#!/bin/bash" >  pngCP.sh
+
+File="png.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/png/$Line\"" >> pngCP.sh
+done
+
+chmod 777 pngCP.sh
+./pngCP.sh
+
+rm pngCP.sh png.txt
+###### END png #############
+
+#####BEGIN odt #####
+cat LegitFileNames.txt | grep "\\.odt" > odt.txt
+
+#MAKE DIRECTORY
+mkdir $a/odt
+
+#Make doc bashfile
+echo "#!/bin/bash" >  odtCP.sh
+
+File="odt.txt"
+Lines=$(cat $File)
+for Line in $Lines
+do
+echo "cp \"/tmp/$Line\" \"$pwd/$a/odt/$Line\"" >> odtCP.sh
+done
+
+chmod 777 odtCP.sh
+./odtCP.sh
+
+rm odtCP.sh odt.txt
+###### END odt #############
+
+##################################################################
+#Remove shit
+rm LegitFileNames.txt docCP.sh docs.txt jpgCP.sh jpg.txt xlsCP.sh xls.txt
