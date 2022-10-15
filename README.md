@@ -8,6 +8,8 @@
 **!FOLLOW USEAGE INSTRUCTIONS BELOW!**<p>
 dirParse: Automatically rip through a folder with unlimited subfolders and organize all it's contents by having new folders created for each type of file. 
 
+**Version 1 Files/Folders created include: doc, jpg, xls, csv, txt, sql, db, ppt, pdf, jpeg, png, odt
+
 <h1>Videos</h1>
 
 <h3>POC - Using dirParse Video: (COMING SOON)</h3><p>
