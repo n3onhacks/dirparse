@@ -17,7 +17,7 @@ dirParse: Automatically rip through a folder with unlimited subfolders and organ
   
 <H2>REQUIREMENTS TO USE:</H2>
 1. Place dirParse into a folder with the folder or folders it will rip through. Files will remain intact afterwards in original locations as well.<p>
-2. Usage: ./dirparse <FolderToPutResults> (ex: ./dirparser.sh Project1) .<br><p>
+2. Usage: ./dirparse <FolderToPutResults> (ex: ./dirparse Project1) .<br><p>
   
 <h2>Notes: </h2>
 
@@ -25,7 +25,7 @@ dirParse: Automatically rip through a folder with unlimited subfolders and organ
 >>git clone https://github.com/n3onhacks/dirparse.git<br>
 >>chmod 777 -R dirparse.sh<br>
 >>(PUT IN SAME DIRECTORY AS FOLDERS IT WILL RIP THROUGH)<br>
->>./dirparse <FolderToPutResults> (ex: ./dirparser.sh Project1)<br>
+>>./dirparse <FolderToPutResults> (ex: ./dirparse Project1)<br>
 
 <h1>Version Control</h1>
  <h3>Version 1.0 release</h3>
